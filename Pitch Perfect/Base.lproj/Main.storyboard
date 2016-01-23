@@ -90,10 +90,10 @@
             </objects>
             <point key="canvasLocation" x="1222.5" y="366"/>
         </scene>
-        <!--Play Sounds View Controller-->
+        <!--Play-->
         <scene sceneID="cYF-4S-laa">
             <objects>
-                <viewController id="azR-FR-kx8" customClass="PlaySoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Play" id="azR-FR-kx8" customClass="PlaySoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TwO-Xd-tVL"/>
                         <viewControllerLayoutGuide type="bottom" id="49V-P3-VMc"/>

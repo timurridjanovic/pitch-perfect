@@ -83,7 +83,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     private func startRecordingSession() {
         let session = AVAudioSession.sharedInstance()
-        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+        try! session.setCategory(AVAudioSessionCategoryRecord)
     }
     
     private func stopRecordingSession() {

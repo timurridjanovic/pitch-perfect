@@ -20,6 +20,7 @@ class PlaySoundsViewController: UIViewController {
     private let DarthVaderPitch: Float = -1000
     private let EchoDelay: Float = 0.3
     private let ReverbWetDryMix: Float = 60
+    private let Volume: Float = 1.0
     
 
     override func viewDidLoad() {
@@ -68,12 +69,15 @@ class PlaySoundsViewController: UIViewController {
         audioFile = try! AVAudioFile(forReading: filePathUrl)
         audioPlayer?.enableRate = true
         audioEngine = AVAudioEngine()
+        let session = AVAudioSession.sharedInstance()
+        try! session.setCategory(AVAudioSessionCategoryPlayback)
     }
     
     private func changeRateAndPlay(rate: Float) {
         stopPlaying()
         if let audioPlayer = audioPlayer {
             audioPlayer.rate = rate
+            audioPlayer.volume = Volume
             audioPlayer.prepareToPlay()
             audioPlayer.play()
         }
@@ -83,6 +87,7 @@ class PlaySoundsViewController: UIViewController {
         stopPlaying()
         if let audioEngine = audioEngine, audioFile = audioFile {
             let audioPlayerNode = AVAudioPlayerNode()
+            audioPlayerNode.volume = Volume
             audioEngine.attachNode(audioPlayerNode)
             audioEngine.attachNode(node)
             audioEngine.connect(audioPlayerNode, to: node, format: nil)
